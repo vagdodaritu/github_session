@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine 🌹</title>
+
+<style>
+body{
+    margin:0;
+    padding-top:80px;
+    text-align:center;
+    font-family:Arial;
+
+    /* BIG ROSES FULL SCREEN */
+    background-image:url("https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg");
+    background-size:600px auto;
+    background-repeat:repeat;
+    background-position:center;
+}
+
+/* Question box */
+h2{
+    background:rgba(255,255,255,0.85);
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:30px;
+}
+
+/* Buttons */
+button{
+    padding:12px 35px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    margin:20px;
+    cursor:pointer;
+}
+
+#yesBtn{
+    background:#ff2f6e;
+    color:white;
+    box-shadow:0 0 15px hotpink;
+}
+
+#noBtn{
+    background:#f2f2f2;
+    position:absolute;
+}
+
+/* YES SCREEN */
+#yesScreen{
+    display:none;
+    position:fixed;
+    inset:0;
+
+    /* SAME ROSES STYLE */
+    background-image:url("https://images.pexels.com/photos/2072165/pexels-photo-2072165.jpeg");
+    background-size:600px auto;
+    background-repeat:repeat;
+    background-position:center;
+    overflow:hidden;
+}
+
+/* Message */
+#msg{
+    margin-top:220px;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    padding:30px 40px;
+    font-size:26px;
+    border-radius:30px;
+    box-shadow:0 0 35px pink;
+    position:relative;
+    z-index:2;
+}
+
+/* Light glow */
+.light{
+    position:absolute;
+    width:14px;
+    height:14px;
+    background:rgba(255,200,200,0.9);
+    border-radius:50%;
+    box-shadow:0 0 25px pink;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh); opacity:1;}
+    to{transform:translateY(-10vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<h2>💖💘❤️ Will you be my Valentine, my heart? ❤️💘💖</h2><br>
+
+<button id="yesBtn" onclick="yes()">Yes</button>
+<button id="noBtn" onmouseover="moveNo()">No</button>
+
+<div id="yesScreen">
+    <div id="msg">
+        🌹 You are officially my Valentine 🌹<br><br>
+        Roses everywhere, just like my feelings 💖
+    </div>
+</div>
+
+<script>
+function yes(){
+    let s=document.getElementById("yesScreen");
+    s.style.display="block";
+
+    for(let i=0;i<35;i++){
+        let l=document.createElement("div");
+        l.className="light";
+        l.style.left=Math.random()*100+"vw";
+        l.style.animationDuration=(3+Math.random()*4)+"s";
+        s.appendChild(l);
+    }
+}
+
+function moveNo(){
+    let b=document.getElementById("noBtn");
+    b.style.left=Math.random()*(window.innerWidth-120)+"px";
+    b.style.top=Math.random()*(window.innerHeight-60)+"px";
+}
+</script>
+
+</body>
+</html>
